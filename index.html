@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sugarscape</title>
+
+    <link href="style/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="container"></div>
+</body>
+ 
+<script type="text/javascript" src="js/agent.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- <script type="text/javascript" src="js/agent.js"></script>
+<script type="text/javascript" src="js/draw.js"></script>
+<script type="text/javascript" src="js/sugar.js"></script> -->
+
+<script type="text/javascript">
+  function run () {
+    initiateCells();
+    initiateSugarMines();
+
+    clearCanvas();
+    createCanvas();
+    createScape();
+
+    renderSugarMines();
+  }
+
+  run()
+</script>
+
+</html>
