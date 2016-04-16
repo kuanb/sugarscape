@@ -7,22 +7,33 @@ function Agent (attr) {
   this.harvest = attr.harvest;
   this.consume = attr.consume;
   this.capacity = attr.capacity;
-  this.sugar = Math.min(sugar, capacity);
+  this.sugar = Math.min(attr.sugar, attr.capacity);
 };
 
-Agent.prototype.getPosition = function () {
-  return this.x + this.y * cntX;
+Agent.prototype.getLocation = function () {
+  return {x: this.x, y: this.y};
 };
 
 Agent.prototype.migrate = function() {
   var bestPos = this.getPosition();
   var thisPos = this.getPosition();
   
-  for (var i=this.x-this.vision; i<=this.x+this.vision; i++) {
-    if (i < 0 || i >= cntX) continue;
-    for (var j=this.y-this.vision; j<=this.y+this.vision; j++) {
-      if (j < 0 || j >= cntY) continue;
+  cells.forEach(function (cell) {
+    var d = getDistance(cell.location, this);
+    if (this.vision < d) continue;
+
+    
+  });
+
+  for (var i = this.x - this.vision; i <= this.x+this.vision; i++) {
+    if (i < 0 || i >= opts.width) continue;
+
+    for (var j = this.y - this.vision; j <= this.y + this.vision; j++) {
+
+      if (j < 0 || j >= opts.height) continue;
+
       var idx = i + j*cntX;
+
       if (!hasAgent[idx] && sugar[bestPos] <= sugar[idx])
         bestPos = idx;
     }
@@ -58,10 +69,6 @@ function SugarMine (attr) {
   this.fallOff = attr.fallOff
 };
 
-SugarMine.prototype.getPosition = function () {
-  return {x: this.x, y: this.y};
-};
-
-SugarMine.prototype.getPosition = function () {
+SugarMine.prototype.getLocation = function () {
   return {x: this.x, y: this.y};
 };

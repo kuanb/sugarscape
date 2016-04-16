@@ -10,27 +10,48 @@
 
 <body>
   <div class="container"></div>
+  <div class="sidebar">
+    <button onclick="run()">Run</button>
+  </div>
 </body>
  
-<script type="text/javascript" src="js/agent.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
 <!-- <script type="text/javascript" src="js/agent.js"></script>
 <script type="text/javascript" src="js/draw.js"></script>
 <script type="text/javascript" src="js/sugar.js"></script> -->
 
 <script type="text/javascript">
-  function run () {
-    initiateCells();
-    initiateSugarMines();
+  var opts = {
 
-    clearCanvas();
-    createCanvas();
-    createScape();
+    // world map
+    height: 30,
+    width: 30,
+    size: 20,
+    strokWeight: 1,
 
-    renderSugarMines();
+    // sugar
+    sugarMineCount: 2,
+    maxProduction: 80,
+    fallOff: 20,
+
+    // agents
+    agentCount: 100,
+    maxVision: 4,
+    maxHarvest: 60,
+    maxConsume: 50,
+    maxCapacity: 50,
+    maxSugar: 50,
   }
 
-  run()
+  var sugarMines = [];
+  var agents = [];
+  var cells = [];
 </script>
+
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/agent.js"></script>
+<script type="text/javascript" src="js/initiate.js"></script>
+<script type="text/javascript" src="js/render.js"></script>
+<script type="text/javascript" src="js/draw.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </html>
