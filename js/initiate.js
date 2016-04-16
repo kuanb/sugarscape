@@ -62,9 +62,10 @@ function initiateAgents () {
 		agents.push(a);
 
 		cells.map(function (cell) {
-			if (cell.location.x == attr.x && cell.location.y == attr.y) }
+			if (cell.location.x == attr.x && cell.location.y == attr.y) {
 				cell.vacant = false;
-				agent = a;
+				// agent = a;
+			}
 		});
 	}
 };
